@@ -1,0 +1,20 @@
+﻿@model HomeViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@section Scripts
+{
+    <script src="~/Scripts/dist/home.js"></script>
+}
+
+<div id="home">
+    @if (Model.Authorized)
+    {
+        <home></home>
+    }
+    else
+    {
+        <span>You do not have the proper roles to use this tool.</span>
+    }
+</div>
