@@ -60,7 +60,7 @@ namespace Syllabus.Web.Controllers
         [HttpPost]
         public FileResult ExportSyllabi([FromBody]List<CourseResultDto> courses)
         {
-            var tempDir = hostingEnvironment.WebRootPath + "/Temp/";
+            var tempDir = hostingEnvironment.WebRootPath + "/Temp/Syllabi/";
             if (!Directory.Exists(tempDir))
             {
                 Directory.CreateDirectory(tempDir);
@@ -78,7 +78,7 @@ namespace Syllabus.Web.Controllers
                 }
             }
 
-            var zipPath = Path.Combine(hostingEnvironment.WebRootPath, "export.zip");
+            var zipPath = Path.Combine(hostingEnvironment.WebRootPath + "/Temp/", "export.zip");
             if (System.IO.File.Exists(zipPath))
             {
                 System.IO.File.Delete(zipPath);
